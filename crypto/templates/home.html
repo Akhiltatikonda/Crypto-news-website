@@ -1,0 +1,28 @@
+{% extends 'base.html'%}
+
+{% block content %}
+{% for key,value in price.DISPLAY.items %}
+{{key}} - {{value.INR.PRICE}}
+<strong>Name:</strong> {{key}} <br/>
+<strong>Current value:</strong>-{{value.INR.PRICE}}<br/>
+<strong>Low 24hours:</strong>-{{value.INR.PRICE}}<br/>
+<br/>
+
+{% endfor %}
+<h1>CryptoNews Website</h1>
+<div class="container">
+    <div class="row">
+{% for x in api.Data %}
+<div class="card" style="width: 18rem;">
+    <img src="{{x.imageurl}}" class="card-img-top" alt="{{x.tags}}">
+    <div class="card-body">
+      <h5 class="card-title">{{x.title}}</h5>
+      <p class="card-text">{{x.body}}</p>
+      <a href={{x.url}} class="btn btn-primary">read more</a>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+</div>
+
+{% endblock %}
